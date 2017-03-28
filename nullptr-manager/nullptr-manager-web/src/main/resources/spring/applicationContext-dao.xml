@@ -32,5 +32,6 @@
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 指定要扫描的包 -->
 		<property name="basePackage" value="com.nullptr.mapper" />
+
 	</bean>
 </beans>
