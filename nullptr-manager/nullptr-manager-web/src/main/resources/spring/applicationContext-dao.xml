@@ -24,13 +24,13 @@
 	<!-- 配置SqlsessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<!-- 加载mybatis的配置文件 -->
-		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"/>
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
 		<!-- 配置数据源 -->
-		<property name="dataSource" ref="dataSource"/>
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<!-- 配置包扫描器，扫描mapper接口生成代理对象放到spring容器中 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 指定要扫描的包 -->
-		<property name="basePackage" value="com.nullptr.mapper"/>
+		<property name="basePackage" value="com.nullptr.mapper" />
 	</bean>
 </beans>
