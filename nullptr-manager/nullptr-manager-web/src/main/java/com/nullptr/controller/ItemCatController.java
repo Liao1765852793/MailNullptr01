@@ -13,11 +13,12 @@ import com.nullptr.common.pojo.EasyUITreeNode;
 import com.nullptr.service.ItemCatService;
 
 @Controller
+@RequestMapping("/item/cat")
 public class ItemCatController {
 	@Autowired
 	private ItemCatService itemCatService;
 
-	@RequestMapping("/item/cat/list ")
+	@RequestMapping("/list ")
 	@ResponseBody
 	public List<EasyUITreeNode> geEasyUITreeNodes(@RequestParam(value = "id", defaultValue = "0") long parentId) {
 		System.out.println("parentId = " + parentId);
