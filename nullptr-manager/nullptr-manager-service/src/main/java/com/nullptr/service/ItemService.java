@@ -8,4 +8,5 @@ public interface ItemService {
 	TbItem getItemById(Long itemId);
 
 	EasyUiDataGridResult getItemList(int page, int rows);
+
 }
