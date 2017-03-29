@@ -28,14 +28,18 @@ public class ItemServiceImpl implements ItemService {
 
 	@Override
 	public TbItem getItemById(Long itemId) {
+		System.out.println("service  getItemById");
+		System.out.println("itemId = " + itemId);
 		TbItemExample example = new TbItemExample();
 		// 创建查询条件
 		Criteria criteria = example.createCriteria();
 
 		criteria.andIdEqualTo(itemId);
 
-		List<TbItem> list = itemMapper.selectByExample(example);
+		System.out.println(criteria.getAllCriteria().toArray().toString());
 
+		List<TbItem> list = itemMapper.selectByExample(example);
+		System.out.println("list = " + list.toString());
 		TbItem item = null;
 		if (list.size() > 0 && list != null) {
 			item = list.get(0);
@@ -50,10 +54,11 @@ public class ItemServiceImpl implements ItemService {
 		// 分页处理
 		PageHelper.startPage(page, rows);
 		TbItemExample example = new TbItemExample();
-		System.out.println("example");
+		System.out.println("example : " + example.getOredCriteria());
+
 		// 需要查询所有数据，所以不需要给Example设置查询条件
 		// 执行查询
-		List<TbItem> list = itemMapper.selectByExample1(example);
+		List<TbItem> list = itemMapper.selectByExample(example);
 
 		// 取分页信息
 		PageInfo<TbItem> pgInfo = new PageInfo<>(list);

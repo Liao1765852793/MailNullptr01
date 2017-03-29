@@ -99,18 +99,6 @@
 			order by ${orderByClause}
 		</if>
 	</select>
-	<select id="selectByExample1" resultMap="BaseResultMap"
-		parameterType="com.nullptr.pojo.TbItemExample">
-		select
-		*
-		from tb_item
-		<if test="_parameter != null">
-			<include refid="Example_Where_Clause" />
-		</if>
-		<if test="orderByClause != null">
-			order by ${orderByClause}
-		</if>
-	</select>
 	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
 		parameterType="java.lang.Long">
 		select
