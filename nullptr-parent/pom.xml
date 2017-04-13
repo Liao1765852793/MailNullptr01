@@ -193,6 +193,11 @@
 				<artifactId>quartz</artifactId>
 				<version>${quartz.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.csource</groupId>
+				<artifactId>fastdfs-client-java</artifactId>
+				<version>1.25</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
