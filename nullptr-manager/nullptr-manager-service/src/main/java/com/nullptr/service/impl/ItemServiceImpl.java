@@ -86,7 +86,7 @@ public class ItemServiceImpl implements ItemService {
 		return result;
 	}
 
-	@Override
+	/*@Override
 	public EasyUiDataGridResult getItemParamList(int page, int rows) {
 		// TODO Auto-generated method stub
 		System.out.println("page = " + page + "  rows = " + rows);
@@ -109,7 +109,7 @@ public class ItemServiceImpl implements ItemService {
 		System.out.println("result : " + result.getTotal() + "  " + result.getRows());
 
 		return result;
-	}
+	}*/
 
 	@Override
 	public TaotaoResult createItem(TbItem item, String desc) {

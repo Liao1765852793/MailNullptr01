@@ -10,7 +10,7 @@ public interface ItemService {
 
 	EasyUiDataGridResult getItemList(int page, int rows);
 	
-	EasyUiDataGridResult getItemParamList(int page, int rows);
+	
 	//创建商品
 	TaotaoResult createItem(TbItem item, String desc);
 

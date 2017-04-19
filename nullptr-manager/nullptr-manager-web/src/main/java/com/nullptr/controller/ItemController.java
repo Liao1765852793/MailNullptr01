@@ -42,12 +42,12 @@ public class ItemController {
 		return result;
 	}
 
-	@RequestMapping("/item/param/list")
+	/*@RequestMapping("/item/param/list")
 	@ResponseBody
 	private EasyUiDataGridResult getItemParamList(Integer page, Integer rows) {
 		System.out.println("controller:/item/param/list");
 		EasyUiDataGridResult result = itemservice.getItemParamList(page, rows);
 		System.out.println(result.getRows());
 		return result;
-	}
+	}*/
 }
