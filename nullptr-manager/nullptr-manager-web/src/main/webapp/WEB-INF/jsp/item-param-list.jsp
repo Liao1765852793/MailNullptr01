@@ -19,6 +19,7 @@
 
 	function formatItemParamData(value , index){
 		var json = JSON.parse(value);
+		
 		var array = [];
 		$.each(json,function(i,e){
 			array.push(e.group);
