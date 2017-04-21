@@ -6,7 +6,7 @@
 		<result column="item_cat_id" property="itemCatId" jdbcType="BIGINT" />
 		<result column="created" property="created" jdbcType="TIMESTAMP" />
 		<result column="updated" property="updated" jdbcType="TIMESTAMP" />
-		<result column="param_data" property="paramData" />
+		<!-- <result column="param_data" property="paramData" /> -->
 	</resultMap>
 	<resultMap id="ResultMapWithBLOBs" type="com.nullptr.pojo.TbItemParam"
 		extends="BaseResultMap">
@@ -108,7 +108,7 @@
 		<if test="distinct">
 			distinct
 		</if>
-		<include refid="Base_Column_List_Nullptr" />
+		<include refid="Base_Column_List" />
 		from tb_item_param
 		<if test="_parameter != null">
 			<include refid="Example_Where_Clause" />
