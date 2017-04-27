@@ -12,6 +12,8 @@ public interface ItemService {
 	
 	
 	//创建商品
-	TaotaoResult createItem(TbItem item, String desc);
-
+	TaotaoResult createItem(TbItem item, String desc,String itemParam);
+	
+	//获取规格参数，用来展示在Html中
+	String getItemParamByItemCid(Long itemId);
 }

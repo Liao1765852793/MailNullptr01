@@ -15,4 +15,7 @@ public interface ItemParamService {
 
 	// 从tb_item_param表中删除id为ids的记录
 	TaotaoResult deleteItemById(Long [] ids);
+	
+	//从tb_item_param表查询id = cid 规格参数数据
+	TaotaoResult getItemParamByCidcid(Long cid);
 }

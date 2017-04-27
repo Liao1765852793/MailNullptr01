@@ -1,7 +1,16 @@
 package com.nullptr.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Reader;
+import java.io.Writer;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,18 +45,28 @@ public class ItemController {
 
 	@RequestMapping(value = "/item/save", method = RequestMethod.POST)
 	@ResponseBody
-	private TaotaoResult createItemDesc(TbItem item, String desc) {
-		TaotaoResult result = itemservice.createItem(item, desc);
-
+	private TaotaoResult createItemDesc(TbItem item, String desc, String itemParams) {
+		TaotaoResult result = itemservice.createItem(item, desc, itemParams);
 		return result;
 	}
 
-	/*@RequestMapping("/item/param/list")
+	@RequestMapping("/item/param/{itemId}")
 	@ResponseBody
-	private EasyUiDataGridResult getItemParamList(Integer page, Integer rows) {
-		System.out.println("controller:/item/param/list");
-		EasyUiDataGridResult result = itemservice.getItemParamList(page, rows);
-		System.out.println(result.getRows());
-		return result;
-	}*/
+	private String getItemParamList(@PathVariable Long itemId, Model model) {
+		String result = itemservice.getItemParamByItemCid(itemId);
+		// model.addAttribute("html", result);
+		model.addAttribute("itemparam", result);
+		return "item-param";
+	}
+
+	// 直接输出html静态文本内容显示到页面上
+	@RequestMapping("/item/param/writeHtml/{itemId}")
+	@ModelAttribute
+	private void getItemParamListToHtml(@PathVariable Long itemId, HttpServletResponse response) throws IOException {
+		String result = itemservice.getItemParamByItemCid(itemId);
+		response.setCharacterEncoding("UTF-8");
+		response.getWriter().write(result);
+
+	}
+
 }

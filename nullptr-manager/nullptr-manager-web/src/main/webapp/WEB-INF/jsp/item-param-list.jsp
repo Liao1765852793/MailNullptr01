@@ -62,8 +62,8 @@
 				text : '编辑',
 				iconCls : 'icon-edit',
 				handler : function() {
-					/* $.messager.alert('提示', '该功能未实现!'); */
-					var row = $('#itemParamList').datagrid('getSelected');
+				 $.messager.alert('提示', '该功能未实现!'); 
+					/* var row = $('#itemParamList').datagrid('getSelected');
 					if(row == null){
 						$.messager.alert('提示', '未选中商品规格!');
 						return;
@@ -74,7 +74,7 @@
 					
 					TAOTAO.createWindow({
 						url : "/item-edit",
-					});
+					}); */
 				}
 			},
 			{

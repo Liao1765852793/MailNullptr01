@@ -55,6 +55,7 @@ public class ItemParamServiceImpl implements ItemParamService {
 
 		// 执行查询
 		List<TbItemParam> list = itemparamMapper.selectByExample(itemParamExample);
+		
 		// 判断是否查询到结果
 		if (list != null && list.size() > 0) {
 			TbItemParam itemParam = list.get(0);
@@ -83,6 +84,24 @@ public class ItemParamServiceImpl implements ItemParamService {
 		// TODO Auto-generated method stub
 		for (Long long1 : ids) {
 			itemparamMapper.deleteByPrimaryKey(long1);
+		}
+		return TaotaoResult.ok();
+	}
+
+	@Override
+	public TaotaoResult getItemParamByCidcid(Long cid) {
+		// TODO Auto-generated method stub
+		TbItemParamExample itemParamExample = new TbItemParamExample();
+		Criteria criteria = itemParamExample.createCriteria();
+		criteria.andItemCatIdEqualTo(cid);
+
+		// 执行查询
+		List<TbItemParam> list = itemparamMapper.selectByExampleWithBLOBs(itemParamExample);
+		for (TbItemParam tbItemParam : list) {
+			System.out.println(tbItemParam.getParamData());
+		}
+		if (list.size() > 0 && list != null) {
+			return TaotaoResult.ok(list.get(0));
 		}
 		return TaotaoResult.ok();
 	}
