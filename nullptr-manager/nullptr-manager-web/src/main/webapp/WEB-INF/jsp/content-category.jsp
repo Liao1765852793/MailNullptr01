@@ -13,7 +13,7 @@
 $(function(){
 	$("#contentCategory").tree({
 		url : '/content/category/list',
-		animate: true,
+		animate: false,
 		method : "GET",
 		onContextMenu: function(e,node){
             e.preventDefault();
